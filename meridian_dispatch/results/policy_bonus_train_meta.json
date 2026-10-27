@@ -1,0 +1,29 @@
+{
+  "hardware": {
+    "platform": "Windows-10-10.0.26300-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python": "3.11.18",
+    "cpu_count": 32,
+    "jobs": 32
+  },
+  "args": {
+    "seed": 0,
+    "bc_days": 150,
+    "bc_epochs": 25,
+    "iters": 200,
+    "pairs": 16,
+    "batch_days": 8,
+    "sigma": 0.3,
+    "lr": 0.05,
+    "accept_bonus": 50.0,
+    "val_every": 5,
+    "jobs": 32,
+    "out": "results/policy_bonus.npz",
+    "time_limit": 2400
+  },
+  "bc_accuracy": 0.8676296471702581,
+  "bc_seconds": 8.2,
+  "total_train_seconds": 149.6,
+  "best_val_return": 7510.19,
+  "n_params": 112
+}

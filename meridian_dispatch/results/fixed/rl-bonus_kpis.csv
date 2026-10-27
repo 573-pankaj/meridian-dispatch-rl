@@ -1,0 +1,2 @@
+requests,served,rejected,forced_reject,strategic_reject,failures,revenue,km_total,km_deadhead,kwh,profit,min_landing_soc,pad_util_V0,pad_util_V1,pad_util_V2,pad_util_V3,pad_util_V4,mode_JIT,mode_TOPUP,mode_PRECHARGE,mode_LATE
+70,50,20,15,5,0,6132.0,1149.4,118.3,1833.4,3857.88,20.04,0.232,0.212,0.246,0.317,0.242,29,0,21,0

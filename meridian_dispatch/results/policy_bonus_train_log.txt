@@ -1,0 +1,71 @@
+hardware: {"platform": "Windows-10-10.0.26300-SP0", "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel", "python": "3.11.18", "cpu_count": 32, "jobs": 32}
+params: 112, features: 111
+BC: 8446 decision states from 150 JIT days
+BC epoch  0  loss 0.3904  acc 0.8573
+BC epoch  1  loss 0.3202  acc 0.8623
+BC epoch  2  loss 0.3128  acc 0.8651
+BC epoch  3  loss 0.3101  acc 0.8673
+BC epoch  4  loss 0.3094  acc 0.8663
+BC epoch  5  loss 0.3084  acc 0.8667
+BC epoch  6  loss 0.3081  acc 0.8642
+BC epoch  7  loss 0.3077  acc 0.8657
+BC epoch  8  loss 0.3078  acc 0.8679
+BC epoch  9  loss 0.3081  acc 0.8660
+BC epoch 10  loss 0.3078  acc 0.8657
+BC epoch 11  loss 0.3078  acc 0.8646
+BC epoch 12  loss 0.3077  acc 0.8653
+BC epoch 13  loss 0.3076  acc 0.8670
+BC epoch 14  loss 0.3074  acc 0.8670
+BC epoch 15  loss 0.3080  acc 0.8651
+BC epoch 16  loss 0.3078  acc 0.8680
+BC epoch 17  loss 0.3078  acc 0.8666
+BC epoch 18  loss 0.3075  acc 0.8664
+BC epoch 19  loss 0.3074  acc 0.8656
+BC epoch 20  loss 0.3077  acc 0.8688
+BC epoch 21  loss 0.3077  acc 0.8653
+BC epoch 22  loss 0.3073  acc 0.8647
+BC epoch 23  loss 0.3073  acc 0.8675
+BC epoch 24  loss 0.3076  acc 0.8676
+BC calibration: median score gap 6.017 -> 1.0
+Stage 1 done in 8.2s
+iter   0  val return 6983.90 (BC policy)
+iter   5  t=  12.7s  pop return  6960.37  pop profit  4192.40  val return  7042.26  best  7042.26
+iter  10  t=  15.5s  pop return  6862.66  pop profit  4111.49  val return  7046.05  best  7046.05
+iter  15  t=  18.2s  pop return  6748.95  pop profit  4062.62  val return  6998.25  best  7046.05
+iter  20  t=  20.9s  pop return  6899.05  pop profit  4140.65  val return  7069.94  best  7069.94
+iter  25  t=  23.8s  pop return  7219.63  pop profit  4347.37  val return  7283.94  best  7283.94
+iter  30  t=  26.7s  pop return  7015.24  pop profit  4201.17  val return  7299.75  best  7299.75
+iter  35  t=  29.8s  pop return  6809.26  pop profit  4080.35  val return  7259.71  best  7299.75
+iter  40  t=  33.3s  pop return  7664.64  pop profit  4582.60  val return  7265.53  best  7299.75
+iter  45  t=  36.7s  pop return  7407.45  pop profit  4481.67  val return  7269.53  best  7299.75
+iter  50  t=  39.9s  pop return  7436.85  pop profit  4500.52  val return  7359.49  best  7359.49
+iter  55  t=  43.1s  pop return  7146.80  pop profit  4318.09  val return  7397.37  best  7397.37
+iter  60  t=  46.1s  pop return  7180.79  pop profit  4322.78  val return  7321.80  best  7397.37
+iter  65  t=  49.2s  pop return  7287.23  pop profit  4410.86  val return  7362.17  best  7397.37
+iter  70  t=  52.5s  pop return  7555.43  pop profit  4579.25  val return  7367.77  best  7397.37
+iter  75  t=  56.3s  pop return  7288.77  pop profit  4395.41  val return  7386.31  best  7397.37
+iter  80  t=  60.1s  pop return  7580.04  pop profit  4566.37  val return  7399.71  best  7399.71
+iter  85  t=  63.8s  pop return  7398.97  pop profit  4460.69  val return  7389.40  best  7399.71
+iter  90  t=  67.4s  pop return  7307.82  pop profit  4412.71  val return  7410.15  best  7410.15
+iter  95  t=  71.0s  pop return  7388.24  pop profit  4439.02  val return  7436.78  best  7436.78
+iter 100  t=  74.6s  pop return  7693.95  pop profit  4645.51  val return  7408.20  best  7436.78
+iter 105  t=  78.4s  pop return  7601.29  pop profit  4609.49  val return  7468.71  best  7468.71
+iter 110  t=  82.2s  pop return  7302.62  pop profit  4413.75  val return  7416.55  best  7468.71
+iter 115  t=  85.9s  pop return  7335.63  pop profit  4453.02  val return  7480.70  best  7480.70
+iter 120  t=  89.6s  pop return  7381.93  pop profit  4437.40  val return  7491.86  best  7491.86
+iter 125  t=  93.5s  pop return  6956.49  pop profit  4195.16  val return  7468.24  best  7491.86
+iter 130  t=  97.4s  pop return  7785.72  pop profit  4727.12  val return  7429.58  best  7491.86
+iter 135  t= 101.4s  pop return  7076.59  pop profit  4255.49  val return  7413.65  best  7491.86
+iter 140  t= 105.1s  pop return  7594.42  pop profit  4589.14  val return  7430.88  best  7491.86
+iter 145  t= 108.8s  pop return  7672.83  pop profit  4656.23  val return  7487.45  best  7491.86
+iter 150  t= 112.3s  pop return  7452.38  pop profit  4512.14  val return  7445.46  best  7491.86
+iter 155  t= 116.0s  pop return  7643.51  pop profit  4583.74  val return  7463.33  best  7491.86
+iter 160  t= 119.9s  pop return  7975.88  pop profit  4798.74  val return  7497.05  best  7497.05
+iter 165  t= 123.4s  pop return  7460.01  pop profit  4501.61  val return  7510.19  best  7510.19
+iter 170  t= 127.1s  pop return  7232.59  pop profit  4339.03  val return  7479.25  best  7510.19
+iter 175  t= 130.8s  pop return  7739.74  pop profit  4673.53  val return  7418.74  best  7510.19
+iter 180  t= 134.5s  pop return  7415.04  pop profit  4426.37  val return  7429.42  best  7510.19
+iter 185  t= 138.2s  pop return  7552.86  pop profit  4521.42  val return  7438.75  best  7510.19
+iter 190  t= 142.0s  pop return  7664.68  pop profit  4626.60  val return  7418.90  best  7510.19
+iter 195  t= 145.7s  pop return  7269.84  pop profit  4420.03  val return  7415.90  best  7510.19
+iter 200  t= 149.4s  pop return  7090.97  pop profit  4237.07  val return  7427.58  best  7510.19

@@ -342,7 +342,11 @@ files, ran the experiments in a cloud VM, and reported the results. I directed
 the design choices, reviewed the code and the results, and checked the
 explanations. The diagnostic steps (why the MLP failed under ES, why the context
 features had no effect at first, why the rollout teacher was worse) came from
-running and inspecting the experiments in that session. I can explain and
-extend every part of the submission.
+running and inspecting the experiments in that session. 
 
-*(Edit this section to match exactly how you used the tools.)*
+System used to run code:
+Device name	DESKTOP-0I2EQG2 \\
+Processor	Intel(R) Core(TM) i9-14900 (2.00 GHz) \\
+Installed RAM	16.0 GB (15.7 GB usable) \\
+System type	64-bit operating system, x64-based processor \\
+Pen and touch	Pen support
