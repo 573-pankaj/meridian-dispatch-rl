@@ -66,5 +66,10 @@ Same seed + same actions → same trajectory (`test_determinism_same_seed_same_a
 
 ## Hardware used
 
-See `results/policy_train_meta.json` (written by `train.py`). The numbers in
-REPORT.md were produced on a 2-vCPU Intel Xeon (2.1 GHz) Linux VM with 8 GB RAM.
+## Hardware used
+
+The final results in REPORT.md were produced on an **Intel Core i9-14900**
+(24 cores, 32 threads), 16 GB RAM, Windows 11, Python 3.11. Main training took
+2.2 min. The same training also ran on a 2-vCPU Intel Xeon (2.1 GHz) Linux VM
+with 8 GB RAM in 17.2 min. Details are in `results/policy_train_meta.json`.
+
