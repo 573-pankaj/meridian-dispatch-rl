@@ -1,14 +1,14 @@
 # Meridian eVTOL dispatch: simulator, independent checker and learned policy
 
-Python 3.9+ (tested on 3.13). Dependencies: `numpy`, `scipy`, `matplotlib` (plots only),
+Python 3.9+ (tested on 3.11 on Windows and 3.13 on Linux). Dependencies: `numpy`, `scipy`, `matplotlib` (plots only),
 `pytest` (tests only). No GPU and no deep-learning framework are needed.
 
 ```
 pip install numpy scipy matplotlib pytest
-bash run_all.sh                            # everything (~55 min); SKIP_MAIN_TRAINING=1 reuses results/policy.npz
+bash run_all.sh                            # Linux/macOS: everything; SKIP_MAIN_TRAINING=1 reuses results/policy.npz
 # or step by step:
 python -m pytest -q tests/                 # 33 tests, ~10 s
-python train.py                            # main policy  -> results/policy.npz      (~10 min, 2 cores)
+python train.py                            # main policy  -> results/policy.npz      (~2 min on 32 threads)
 python train.py --accept-bonus 50 --out results/policy_bonus.npz   # rejected reward variant
 python evaluate.py                         # all tables -> results/tables.md, summary.json, plots
 python -m meridian.auditor --requests data/requests.csv \
@@ -17,6 +17,98 @@ python -m meridian.auditor --requests data/requests.csv \
 ```
 
 The short note with all results is **[REPORT.md](REPORT.md)**.
+
+## Running on Windows (Anaconda Prompt)
+
+These commands are for the **Anaconda Prompt** on Windows. `run_all.sh` is a
+bash script and will not run in that prompt, so the steps are listed one by one.
+
+**1. Create and activate the environment** (one time only)
+
+```bat
+conda create -n meridian python=3.11 -y
+conda activate meridian
+conda install -c conda-forge numpy scipy matplotlib pytest -y
+conda env config vars set PYTHONUTF8=1
+conda deactivate
+conda activate meridian
+```
+
+`PYTHONUTF8=1` makes Python write the result files as UTF-8. Without it, the
+default Windows encoding (cp1252) cannot write characters such as `→` in
+`results\tables.md`. The scripts also open their output files with
+`encoding="utf-8"`, so this setting is only a second safeguard.
+
+**2. Go to the repository folder** (change the path to where you unzipped it)
+
+```bat
+cd /d C:\path\to\meridian-dispatch
+```
+
+Run every command below from this folder, because the scripts read `data\` and
+write `results\` relative to it.
+
+**3. Run the tests** (about 10 seconds)
+
+```bat
+python -m pytest -q tests
+```
+
+You should see `33 passed`.
+
+**4. Training** (optional for the main policy)
+
+```bat
+:: Main policy. Skip this to use the shipped results\policy.npz.
+python train.py
+
+:: Rejected reward variant. Needed for the "RL-bonus" column.
+python train.py --accept-bonus 50 --out results/policy_bonus.npz
+```
+
+**5. Full evaluation**
+
+```bat
+python evaluate.py
+```
+
+This writes `results\tables.md`, `results\summary.json`, `results\episodes.csv`,
+the plots, and the audited fixed-instance logs in `results\fixed\`.
+
+**6. Analysis scripts**
+
+```bat
+python experiments/jit_rejection_causes.py
+python experiments/failure_analysis.py
+python experiments/rollout_teacher_check.py --days 10 --m 4
+```
+
+**7. Optional: check one schedule with the auditor directly**
+
+```bat
+python -m meridian.auditor --requests data/requests.csv --schedule results/fixed/rl_schedule.csv --decisions results/fixed/rl_decisions.csv --config results/fixed/rl_config.json --kpis results/fixed/rl_kpis.csv
+```
+
+**Measured run times**
+
+| Step | Intel Core i9-14900 (32 threads) | 2-vCPU Intel Xeon VM |
+|---|---|---|
+| Tests | ~6 s | ~6 s |
+| Main training (`train.py`) | 2.2 min | 17.2 min |
+| Reward variant training | 2.5 min | ~17 min |
+| Evaluation (`evaluate.py`, 18,760 episodes) | ~50 s | ~8–10 min |
+| Rollout teacher check (10 days) | ~2 min | ~2 min |
+
+**Notes**
+
+* Training and evaluation use all CPU cores by default. Add `--jobs 1` to
+  either command if the computer becomes slow.
+* The CPU is saved in `results\policy_train_meta.json` when you retrain.
+* If `conda install` is slow, `pip install numpy scipy matplotlib pytest`
+  inside the activated environment works too.
+* Results can differ slightly between machines (floating-point and library
+  differences) after many ES iterations. Report the numbers from your own run.
+
 
 ## Layout
 
@@ -66,10 +158,7 @@ Same seed + same actions → same trajectory (`test_determinism_same_seed_same_a
 
 ## Hardware used
 
-## Hardware used
-
 The final results in REPORT.md were produced on an **Intel Core i9-14900**
 (24 cores, 32 threads), 16 GB RAM, Windows 11, Python 3.11. Main training took
 2.2 min. The same training also ran on a 2-vCPU Intel Xeon (2.1 GHz) Linux VM
 with 8 GB RAM in 17.2 min. Details are in `results/policy_train_meta.json`.
-
